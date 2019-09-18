@@ -5,6 +5,7 @@
 
 import module from './vuex-i18n-store';
 import plurals from './vuex-i18n-plurals';
+import translateComponent from './components/translate';
 
 // initialize the plugin object
 let VuexI18nPlugin = {};
@@ -354,7 +355,7 @@ VuexI18nPlugin.install = function install(Vue, store, config) {
 	// register a filter function for translations
 	Vue.filter(translateFilterName, translate);
 	Vue.filter(translateInFilterName, translateInLanguageFilter);
-
+	Vue.component('translate', translateComponent);
 };
 
 // renderFn will initialize a function to render the variable substitutions in

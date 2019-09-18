@@ -347,6 +347,45 @@ $i18n.keyExists(key, 'strict'), $i18n.keyExists(key, 'locale'), $i18n.keyExists(
 
 ```
 
+### Interpolation
+In order to localize with the message that contains HTML tag or component you can use `<translate />` with the correspondent children components as named slots. It has the following properties:
+```javascript
+{
+	//translation key
+	path: {
+		type: String,
+		required: true
+	},
+	//HTML tag name that <translate> will render, will fallback to <span>				 
+	tag: String,	
+	//translation dynamic parameters
+	params: Object
+}
+```
+For example: 
+```javascript
+const translationKeys = {
+	//...
+	someKey: "An example message with {link}, some {paragraph} and dynamic param value {value}"
+	//...
+};
+
+<translate path="someKey" tag="div" :params="{ value: 123 }">
+	<template v-slot:link>
+		<a href="https://url.com" title="link" rel="noopener">link</a>
+	</template>
+	<template v-slot:paragraph>
+		<p>paragraph</p>
+	</template>	
+</translate>
+
+//Will result in:
+<div>
+	An example message with <a href="https://url.com" title="link" rel="noopener">link</a>, some <p>paragraph</p> and dynamic param value 123
+</div>
+```
+You might need to disable warnings in a config since `translate` component doesn't provide all the necessary dynamic params on the first `$t` run
+
 ## Third-Party Integration
 Thanks to Liip Team Amboss for developing an interactive translation manager for node.js. You can find it at https://github.com/liip-amboss/locale-man.
 
