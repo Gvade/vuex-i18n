@@ -364,7 +364,7 @@ In order to localize with the message that contains HTML tag or component you ca
 ```
 For example: 
 ```javascript
-const translatios = {
+const translations = {
 	//...
 	someKey: "An example message with {link}, some {paragraph} and dynamic param value {value}"
 	//...
