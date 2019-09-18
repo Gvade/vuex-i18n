@@ -364,7 +364,7 @@ In order to localize with the message that contains HTML tag or component you ca
 ```
 For example: 
 ```javascript
-const translationKeys = {
+const translatios = {
 	//...
 	someKey: "An example message with {link}, some {paragraph} and dynamic param value {value}"
 	//...
@@ -384,7 +384,7 @@ const translationKeys = {
 	An example message with <a href="https://url.com" title="link" rel="noopener">link</a>, some <p>paragraph</p> and dynamic param value 123
 </div>
 ```
-You might need to disable warnings in a config since `translate` component doesn't provide all the necessary dynamic params on the first `$t` run
+You might need to disable warnings in a config since `translate` component doesn't provide all the necessary dynamic params on the first `$t` run.
 
 ## Third-Party Integration
 Thanks to Liip Team Amboss for developing an interactive translation manager for node.js. You can find it at https://github.com/liip-amboss/locale-man.
